@@ -1,7 +1,9 @@
 import 'package:delivery_app/utils/colors.dart';
+import 'package:delivery_app/utils/dimensions.dart';
 import 'package:delivery_app/widgets/big_text.dart';
 import 'package:delivery_app/widgets/icon_text.dart';
 import 'package:delivery_app/widgets/small_text.dart';
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 
 class FoodPageBody extends StatefulWidget {
@@ -16,7 +18,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
 
   var _currentPagValue = 0.0;
   var _scaleFactor = 0.8;
-  var _height = 220;
+  var _height = Layout.pageViewContainer;
 
   //Function for listening to page value
   @override
@@ -37,15 +39,30 @@ class _FoodPageBodyState extends State<FoodPageBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      //scolor: Colors.grey,
-      height: 320,
-      child: PageView.builder(
-          controller: pageController,
-          itemCount: 5,
-          itemBuilder: (context, position) {
-            return _buildPageItem(position);
-          }),
+    return Column(
+      children: [
+        Container(
+          //scolor: Colors.grey,
+          height: Layout.pageView,
+          child: PageView.builder(
+              controller: pageController,
+              itemCount: 5,
+              itemBuilder: (context, position) {
+                return _buildPageItem(position);
+              }),
+        ),
+        new DotsIndicator(
+          dotsCount: 5,
+          position: _currentPagValue,
+          decorator: DotsDecorator(
+            activeColor: Styles.mainColor,
+            size: const Size.square(9.0),
+            activeSize: const Size(18.0, 9.0),
+            activeShape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5.0)),
+          ),
+        ),
+      ],
     );
   }
 
@@ -91,7 +108,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           // Restaurant Profile container - display the Dp of the restaurant
           Container(
             margin: const EdgeInsets.only(left: 10, right: 10),
-            height: 220,
+            height: Layout.pageViewContainer,
             decoration: BoxDecoration(
               color: index.isEven ? Colors.grey : Colors.green,
               borderRadius: BorderRadius.circular(30),
@@ -107,7 +124,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             alignment: Alignment.bottomCenter,
             child: Container(
               margin: const EdgeInsets.only(left: 30, right: 30, bottom: 30),
-              height: 130,
+              height: Layout.pageViewTextContainer,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
@@ -116,6 +133,14 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                     color: Color(0xFFe8e8e8),
                     blurRadius: 5.0,
                     offset: Offset(0, 5),
+                  ),
+                  BoxShadow(
+                    color: Colors.white,
+                    offset: Offset(-5, 0),
+                  ),
+                  BoxShadow(
+                    color: Colors.white,
+                    offset: Offset(5, 0),
                   )
                 ],
               ),

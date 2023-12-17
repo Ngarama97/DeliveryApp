@@ -48,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     height: 40,
                     decoration: BoxDecoration(
                         color: Styles.mainColor,
-                        borderRadius: BorderRadius.circular(6)),
+                        borderRadius: BorderRadius.circular(10)),
                     child: Icon(
                       Icons.search,
                       size: 20,
