@@ -13,6 +13,7 @@ class Layout {
   static double height15 = screenHeight / 56.27;
   static double height20 = screenHeight / 42.2;
   static double height45 = screenHeight / 18.76;
+  static double height40 = screenHeight / 24.2;
   static double height30 = screenHeight / 28.13;
 
   //dynamic width, padding and margin
@@ -31,5 +32,5 @@ class Layout {
   static double radius15 = screenHeight / 56.27;
 
   //iconSize
-  static double iconSize = screenHeight / 25.17;
+  static double iconSize = screenHeight / 24.2;
 }

@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:delivery_app/home/food_page.dart';
 import 'package:delivery_app/utils/colors.dart';
 import 'package:delivery_app/widgets/big_text.dart';
@@ -42,21 +40,21 @@ class _MyHomePageState extends State<MyHomePage> {
                           text: 'Dar es salaam',
                           color: Colors.black54,
                         ),
-                        Icon(Icons.expand_more),
+                        const Icon(Icons.expand_more),
                       ],
                     )
                   ],
                 ),
                 Center(
                   child: Container(
-                    width: Layout.width40,
-                    height: Layout.height10,
+                    width: Layout.width30,
+                    height: Layout.height30,
                     decoration: BoxDecoration(
                         color: Styles.mainColor,
-                        borderRadius: BorderRadius.circular(Layout.radius15)),
+                        borderRadius: BorderRadius.circular(5)),
                     child: Icon(
                       Icons.search,
-                      size: Layout.iconSize,
+                      size: 20,
                       color: Colors.white,
                     ),
                   ),
@@ -65,7 +63,11 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           //The PageView Section
-          const FoodPageBody(),
+          const Expanded(
+            child: SingleChildScrollView(
+              child: FoodPageBody(),
+            ),
+          ),
         ],
       ),
     );

@@ -4,7 +4,6 @@ import 'package:delivery_app/widgets/big_text.dart';
 import 'package:delivery_app/widgets/icon_text.dart';
 import 'package:delivery_app/widgets/small_text.dart';
 import 'package:dots_indicator/dots_indicator.dart';
-import 'package:delivery_app/utils/dimensions.dart';
 import 'package:flutter/material.dart';
 
 class FoodPageBody extends StatefulWidget {
@@ -18,8 +17,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   PageController pageController = PageController(viewportFraction: 0.85);
 
   var _currentPagValue = 0.0;
-  var _scaleFactor = 0.8;
-  var _height = Layout.pageViewContainer;
+  final _scaleFactor = 0.8;
+  final _height = Layout.pageViewContainer;
 
   //Function for listening to page value
   @override
@@ -42,6 +41,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        //Slider section
         Container(
           //scolor: Colors.grey,
           height: Layout.pageView,
@@ -52,6 +52,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 return _buildPageItem(position);
               }),
         ),
+        //The dots indicator
         DotsIndicator(
           dotsCount: 5,
           position: _currentPagValue,
@@ -63,13 +64,90 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 borderRadius: BorderRadius.circular(5.0)),
           ),
         ),
+
+        //The popular section
+        SizedBox(
+          height: Layout.height30,
+        ),
+        Container(
+          margin: EdgeInsets.only(left: Layout.width30),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              BigText(text: 'Popular'),
+              SizedBox(width: Layout.width10),
+              Container(
+                margin: EdgeInsets.only(bottom: 2),
+                child: BigText(
+                  text: '.',
+                  color: Colors.black26,
+                ),
+              ),
+              SizedBox(width: Layout.width10),
+              Container(
+                  margin: const EdgeInsets.only(
+                    bottom: 4.0,
+                  ),
+                  child: SmallText(text: 'Food Pairing')),
+            ],
+          ),
+        ),
+
+        //List of food Images
+        Container(
+          height: 700,
+          child: ListView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: 10,
+            itemBuilder: (context, index) {
+              return Container(
+                margin: EdgeInsets.only(
+                    left: Layout.width20,
+                    right: Layout.width20,
+                    bottom: Layout.height10),
+                child: Row(
+                  children: [
+                    Container(
+                      width: 120,
+                      height: 120,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(Layout.radius20),
+                          color: Colors.black12,
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: AssetImage(
+                              'assets/images/food5.jpeg',
+                            ),
+                          )),
+                    ),
+                    Container(
+                      width: 220,
+                      height: 80,
+                      decoration: BoxDecoration(
+                        // borderRadius: BorderRadius.only(topRight: Radius.Layout.radius20),
+                        color: Colors.black12,
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        ),
       ],
     );
   }
 
+/* 
+  This the food Container displaying restaurants data, distance, dishes a
+  And delivery time
+  A single widget to be rendered for the page builder
+
+ */
   Widget _buildPageItem(int index) {
     //Checking the page view and making the transformation
-    Matrix4 matrix = new Matrix4.identity();
+    Matrix4 matrix = Matrix4.identity();
 
     // Condition for the current page
     if (index == _currentPagValue.floor()) {
