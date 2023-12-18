@@ -1,5 +1,7 @@
+import 'package:delivery_app/utils/dimensions.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:delivery_app/utils/dimensions.dart';
 
 // ignore: must_be_immutable
 class BigText extends StatelessWidget {
@@ -12,7 +14,7 @@ class BigText extends StatelessWidget {
     super.key,
     this.color = const Color(0xFF332d2b),
     required this.text,
-    this.size = 20,
+    this.size = 0,
     this.overflow = TextOverflow.ellipsis,
   });
 
@@ -23,7 +25,10 @@ class BigText extends StatelessWidget {
       text,
       overflow: overflow,
       style: GoogleFonts.roboto(
-          color: color, fontWeight: FontWeight.w400, fontSize: size),
+        color: color,
+        fontWeight: FontWeight.w400,
+        fontSize: size == 0 ? Layout.font20 : size,
+      ),
     );
   }
 }

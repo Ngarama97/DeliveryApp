@@ -4,6 +4,7 @@ import 'package:delivery_app/widgets/big_text.dart';
 import 'package:delivery_app/widgets/icon_text.dart';
 import 'package:delivery_app/widgets/small_text.dart';
 import 'package:dots_indicator/dots_indicator.dart';
+import 'package:delivery_app/utils/dimensions.dart';
 import 'package:flutter/material.dart';
 
 class FoodPageBody extends StatefulWidget {
@@ -51,7 +52,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 return _buildPageItem(position);
               }),
         ),
-        new DotsIndicator(
+        DotsIndicator(
           dotsCount: 5,
           position: _currentPagValue,
           decorator: DotsDecorator(
@@ -107,11 +108,12 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         children: [
           // Restaurant Profile container - display the Dp of the restaurant
           Container(
-            margin: const EdgeInsets.only(left: 10, right: 10),
+            margin:
+                EdgeInsets.only(left: Layout.width10, right: Layout.width10),
             height: Layout.pageViewContainer,
             decoration: BoxDecoration(
               color: index.isEven ? Colors.grey : Colors.green,
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(Layout.radius30),
               image: const DecorationImage(
                 fit: BoxFit.cover,
                 image: AssetImage('assets/images/food2.webp'),
@@ -123,12 +125,15 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              margin: const EdgeInsets.only(left: 30, right: 30, bottom: 30),
+              margin: EdgeInsets.only(
+                  left: Layout.width30,
+                  right: Layout.width30,
+                  bottom: Layout.height30),
               height: Layout.pageViewTextContainer,
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
-                boxShadow: [
+                borderRadius: BorderRadius.circular(Layout.radius20),
+                boxShadow: const [
                   BoxShadow(
                     color: Color(0xFFe8e8e8),
                     blurRadius: 5.0,
@@ -145,12 +150,13 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 ],
               ),
               child: Padding(
-                padding: const EdgeInsets.only(top: 10.0, left: 10.0),
+                padding:
+                    EdgeInsets.only(top: Layout.height10, left: Layout.width10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     BigText(text: "Chinese Slide"),
-                    const SizedBox(height: 10.0),
+                    SizedBox(height: Layout.height10),
                     Row(
                       children: [
                         // The stars for rating
@@ -161,20 +167,20 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                 size: 15, color: Styles.mainColor),
                           ),
                         ),
-                        const SizedBox(width: 10),
+                        SizedBox(width: Layout.width10),
                         SmallText(text: '4.5'),
-                        const SizedBox(width: 10),
+                        SizedBox(width: Layout.width10),
                         SmallText(text: '1287 comments'),
                       ],
                     ),
-                    const SizedBox(
-                      height: 20,
+                    SizedBox(
+                      height: Layout.height20,
                     ),
 
                     // The section for restaurant statics (quality, location & delivery time)
-                    const Padding(
-                      padding: EdgeInsets.only(right: 10.0),
-                      child: Row(
+                    Padding(
+                      padding: EdgeInsets.only(right: Layout.width10),
+                      child: const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           IconAndText(

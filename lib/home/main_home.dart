@@ -1,8 +1,11 @@
+import 'dart:html';
+
 import 'package:delivery_app/home/food_page.dart';
 import 'package:delivery_app/utils/colors.dart';
 import 'package:delivery_app/widgets/big_text.dart';
 import 'package:delivery_app/widgets/small_text.dart';
 import 'package:flutter/material.dart';
+import 'package:delivery_app/utils/dimensions.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -19,8 +22,10 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           //The headerSection
           Container(
-            margin: EdgeInsets.only(top: 45, bottom: 15),
-            padding: EdgeInsets.only(left: 20, right: 20),
+            margin:
+                EdgeInsets.only(top: Layout.height45, bottom: Layout.height15),
+            padding:
+                EdgeInsets.only(left: Layout.width20, right: Layout.width20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -44,14 +49,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 Center(
                   child: Container(
-                    width: 40,
-                    height: 40,
+                    width: Layout.width40,
+                    height: Layout.height10,
                     decoration: BoxDecoration(
                         color: Styles.mainColor,
-                        borderRadius: BorderRadius.circular(10)),
+                        borderRadius: BorderRadius.circular(Layout.radius15)),
                     child: Icon(
                       Icons.search,
-                      size: 20,
+                      size: Layout.iconSize,
                       color: Colors.white,
                     ),
                   ),
