@@ -1,4 +1,4 @@
-import 'package:delivery_app/home/food_page.dart';
+import 'package:delivery_app/pages/home/food_page.dart';
 import 'package:delivery_app/utils/colors.dart';
 import 'package:delivery_app/widgets/big_text.dart';
 import 'package:delivery_app/widgets/small_text.dart';
@@ -45,6 +45,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     )
                   ],
                 ),
+
+                // The section icon in home screen
                 Center(
                   child: Container(
                     width: Layout.width30,
@@ -52,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     decoration: BoxDecoration(
                         color: Styles.mainColor,
                         borderRadius: BorderRadius.circular(5)),
-                    child: Icon(
+                    child: const Icon(
                       Icons.search,
                       size: 20,
                       color: Colors.white,

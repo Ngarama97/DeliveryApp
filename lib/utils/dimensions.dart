@@ -24,7 +24,9 @@ class Layout {
   static double width40 = screenHeight / 24.2;
   static double width45 = screenHeight / 18.76;
 
+  // dynamic font
   static double font20 = screenHeight / 42.2;
+  static double font26 = screenHeight / 32.46;
 
   //radius
   static double radius20 = screenHeight / 42.2;
@@ -32,5 +34,16 @@ class Layout {
   static double radius15 = screenHeight / 56.27;
 
   //iconSize
-  static double iconSize = screenHeight / 24.2;
+  static double iconSize24 = screenHeight / 35.17;
+  static double iconSize16 = screenHeight / 52.75;
+
+  //List view size
+  static double listViewtextCont = screenHeight / 8.44;
+  static double listViewImg = screenHeight / 7.03;
+
+  //ppopular food
+  static double popularFoodImgSize = screenHeight / 2.411;
+
+  //bottom Height
+  static double bottomHeight = screenHeight / 7.03;
 }

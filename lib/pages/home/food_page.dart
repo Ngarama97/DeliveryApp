@@ -1,5 +1,6 @@
 import 'package:delivery_app/utils/colors.dart';
 import 'package:delivery_app/utils/dimensions.dart';
+import 'package:delivery_app/widgets/app_colum.dart';
 import 'package:delivery_app/widgets/big_text.dart';
 import 'package:delivery_app/widgets/icon_text.dart';
 import 'package:delivery_app/widgets/small_text.dart';
@@ -65,10 +66,12 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           ),
         ),
 
-        //The popular section
+        //The Gapo before popular section
         SizedBox(
           height: Layout.height30,
         ),
+
+        //The popular section
         Container(
           margin: EdgeInsets.only(left: Layout.width30),
           child: Row(
@@ -77,7 +80,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               BigText(text: 'Popular'),
               SizedBox(width: Layout.width10),
               Container(
-                margin: EdgeInsets.only(bottom: 2),
+                margin: const EdgeInsets.only(bottom: 2),
                 child: BigText(
                   text: '.',
                   color: Colors.black26,
@@ -94,46 +97,57 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         ),
 
         //List of food Images
-        Container(
-          height: 700,
-          child: ListView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: 10,
-            itemBuilder: (context, index) {
-              return Container(
-                margin: EdgeInsets.only(
-                    left: Layout.width20,
-                    right: Layout.width20,
-                    bottom: Layout.height10),
-                child: Row(
-                  children: [
-                    Container(
-                      width: 120,
-                      height: 120,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(Layout.radius20),
-                          color: Colors.black12,
-                          image: DecorationImage(
-                            fit: BoxFit.cover,
-                            image: AssetImage(
-                              'assets/images/food5.jpeg',
-                            ),
-                          )),
-                    ),
-                    Container(
-                      width: 220,
-                      height: 80,
-                      decoration: BoxDecoration(
-                        // borderRadius: BorderRadius.only(topRight: Radius.Layout.radius20),
+        ListView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            return Container(
+              margin: EdgeInsets.only(
+                  left: Layout.width20,
+                  right: Layout.width20,
+                  bottom: Layout.height10),
+              child: Row(
+                children: [
+                  Container(
+                    width: Layout.listViewImg,
+                    height: Layout.listViewImg,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(Layout.radius20),
                         color: Colors.black12,
+                        image: const DecorationImage(
+                          fit: BoxFit.cover,
+                          image: AssetImage(
+                            'assets/images/food5.jpeg',
+                          ),
+                        )),
+                  ),
+
+                  //Container for popular
+                  //food pairing
+                  Expanded(
+                    child: Container(
+                      //width: 220,
+                      height: Layout.listViewtextCont,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(Layout.radius20),
+                            bottomRight: Radius.circular(Layout.radius20)),
+                        color: Colors.white,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                            left: Layout.width10, right: Layout.width10),
+                        child: const AppColumn(
+                          text: "Chinese Side",
+                        ),
                       ),
                     ),
-                  ],
-                ),
-              );
-            },
-          ),
+                  ),
+                ],
+              ),
+            );
+          },
         ),
       ],
     );
@@ -230,59 +244,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               child: Padding(
                 padding:
                     EdgeInsets.only(top: Layout.height10, left: Layout.width10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    BigText(text: "Chinese Slide"),
-                    SizedBox(height: Layout.height10),
-                    Row(
-                      children: [
-                        // The stars for rating
-                        Wrap(
-                          children: List.generate(
-                            5,
-                            (index) => const Icon(Icons.star,
-                                size: 15, color: Styles.mainColor),
-                          ),
-                        ),
-                        SizedBox(width: Layout.width10),
-                        SmallText(text: '4.5'),
-                        SizedBox(width: Layout.width10),
-                        SmallText(text: '1287 comments'),
-                      ],
-                    ),
-                    SizedBox(
-                      height: Layout.height20,
-                    ),
-
-                    // The section for restaurant statics (quality, location & delivery time)
-                    Padding(
-                      padding: EdgeInsets.only(right: Layout.width10),
-                      child: const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          IconAndText(
-                            icon: Icons.circle,
-                            text: 'Normal',
-                            color: Styles.signColor,
-                            iconColor: Styles.iconColor1,
-                          ),
-                          IconAndText(
-                            icon: Icons.location_on,
-                            text: '1.7 km',
-                            iconColor: Styles.mainColor,
-                            color: Styles.signColor,
-                          ),
-                          IconAndText(
-                            icon: Icons.timer,
-                            text: '32 min',
-                            iconColor: Styles.iconColor2,
-                            color: Styles.signColor,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+                child: const AppColumn(
+                  text: "Chinese Side",
                 ),
               ),
             ),
