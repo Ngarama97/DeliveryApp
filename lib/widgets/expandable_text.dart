@@ -43,11 +43,11 @@ class _ExpandableTextState extends State<ExpandableText> {
               size: Layout.font16,
               color: Styles.paraColor,
               text: firsHalf,
-              height: 1.8,
+              height: 1.3,
             )
           : Column(children: [
               SmallText(
-                height: 1.8,
+                height: 1.3,
                 text: isHidden ? "$firsHalf..." : firsHalf + lastHalf,
                 size: Layout.font16,
                 color: Styles.paraColor,
