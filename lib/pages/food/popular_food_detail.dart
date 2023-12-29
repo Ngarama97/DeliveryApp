@@ -3,6 +3,7 @@ import 'package:delivery_app/utils/dimensions.dart';
 import 'package:delivery_app/widgets/app_colum.dart';
 import 'package:delivery_app/widgets/app_icon.dart';
 import 'package:delivery_app/widgets/big_text.dart';
+import 'package:delivery_app/widgets/expandable_text.dart';
 import 'package:delivery_app/widgets/icon_text.dart';
 import 'package:delivery_app/widgets/small_text.dart';
 import 'package:flutter/material.dart';
@@ -83,12 +84,21 @@ class PopularFoodDetail extends StatelessWidget {
                     height: Layout.height20,
                   ),
                   // Expandable text Widget
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: ExpandableText(
+                        text:
+                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin urna arcu, rhoncus sed felis in, dignissim viverra massa. Ut vitae nisi dapibus, tincidunt enim ac, ornare dui. Fusce malesuada nulla eget ex mattis feugiat. Quisque convallis arcu nec mauris aliquam tincidunt non id est. Vivamus dignissim a nunc eget congue. Nulla nulla lorem, tempor blandit nunc vitae, rutrum venenatis erat. Proin porta lorem vitae egestas pharetra. Mauris risus lacus, faucibus mollis turpis vel, pharetra feugiat neque. Nulla ut accumsan nibh. Morbi quis sapien ante. Nullam congue neque nunc, at euismod lorem ornare sit amet. Sed pellentesque urna a lorem dignissim pellentesque. Nam laoreet velit at interdum eleifend. Sed laoreet leo eget suscipit cursus. Aenean eget consectetur urna, vel sollicitudin ex  ipsum dolor sit amet, consectetur adipiscing elit. Proin urna arcu',
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),
           ),
         ],
       ),
+      //the purchases section
       bottomNavigationBar: Container(
         padding: EdgeInsets.only(
           left: Layout.width20,
