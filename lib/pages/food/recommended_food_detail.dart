@@ -46,7 +46,11 @@ class RecommendedFoodDetail extends StatelessWidget {
                 padding: EdgeInsets.only(
                     top: Layout.height10, bottom: Layout.height10),
                 width: double.maxFinite,
-                child: Center(child: BigText(text: 'Big Cheese')),
+                child: Center(
+                    child: BigText(
+                  text: 'Big Cheese',
+                  size: Layout.font26,
+                )),
               ),
             ),
             //pin the appbar
@@ -93,7 +97,7 @@ class RecommendedFoodDetail extends StatelessWidget {
             margin: EdgeInsets.symmetric(horizontal: Layout.width45 * 2),
             padding: EdgeInsets.symmetric(vertical: Layout.height10),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: Colors.transparent,
               borderRadius: BorderRadius.circular(Layout.radius20),
             ),
             child: Row(
@@ -106,11 +110,70 @@ class RecommendedFoodDetail extends StatelessWidget {
                 ),
                 BigText(
                   text: '\$12.88 X 0',
+                  color: Styles.mainBlackColor,
+                  size: Layout.font26,
                 ),
                 Icon(
                   Icons.add_circle,
                   size: Layout.iconSize24,
                   color: Styles.mainColor,
+                ),
+              ],
+            ),
+          ),
+
+          //The Add to cart and favorite Bottom Navigation Container
+          Container(
+            padding: EdgeInsets.only(
+              left: Layout.width20,
+              top: Layout.height20,
+              bottom: Layout.height20,
+              right: Layout.width20,
+            ),
+            height: Layout.bottomHeight,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(Layout.radius20 * 2),
+                topRight: Radius.circular(Layout.radius20 * 2),
+              ),
+              color: Styles.buttonBackgroundColor,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                // Add & Remove cart
+                Container(
+                    padding: EdgeInsets.only(
+                      top: Layout.height10,
+                      left: Layout.width20,
+                      right: Layout.width20,
+                      bottom: Layout.height10,
+                    ),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(Layout.radius15)),
+                    child: Icon(
+                      Icons.favorite,
+                      color: Styles.mainColor,
+                      size: Layout.iconSize24,
+                    )),
+
+                //Add to cart button
+                Container(
+                  padding: EdgeInsets.only(
+                    top: Layout.height10,
+                    left: Layout.width20,
+                    right: Layout.width20,
+                    bottom: Layout.height10,
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(Layout.radius15),
+                    color: Styles.mainColor,
+                  ),
+                  child: BigText(
+                    text: "\$10 | Add to Cart",
+                    color: Colors.white,
+                  ),
                 ),
               ],
             ),

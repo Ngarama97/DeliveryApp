@@ -1,4 +1,3 @@
-import 'package:delivery_app/pages/food/popular_food_detail.dart';
 import 'package:delivery_app/pages/food/recommended_food_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
