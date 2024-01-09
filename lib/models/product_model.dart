@@ -31,15 +31,6 @@ class Product {
       });
     }
   }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['total_size'] = _total_size;
-    data['type_id'] = _type_id;
-    data['offset'] = _offset;
-    data['products'] = _products;
-    return data;
-  }
 }
 
 class ProductModel {
@@ -78,19 +69,33 @@ class ProductModel {
     updated_at = json['updated_at'];
     type_id = json['type_id'];
   }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
-    data['name'] = name;
-    data['description'] = description;
-    data['price'] = price;
-    data['stars'] = stars;
-    data['img'] = img;
-    data['location'] = location;
-    data['created_at'] = created_at;
-    data['updated_at'] = updated_at;
-    data['type_id'] = type_id;
-    return data;
-  }
 }
+
+
+
+ // Map<String, dynamic> toJson() {
+  //   final Map<String, dynamic> data = <String, dynamic>{};
+  //   data['id'] = id;
+  //   data['name'] = name;
+  //   data['description'] = description;
+  //   data['price'] = price;
+  //   data['stars'] = stars;
+  //   data['img'] = img;
+  //   data['location'] = location;
+  //   data['created_at'] = created_at;
+  //   data['updated_at'] = updated_at;
+  //   data['type_id'] = type_id;
+  //   return data;
+  // }
+
+
+
+
+  // Map<String, dynamic> toJson() {
+  //   final Map<String, dynamic> data = <String, dynamic>{};
+  //   data['total_size'] = _total_size;
+  //   data['type_id'] = _type_id;
+  //   data['offset'] = _offset;
+  //   data['products'] = _products;
+  //   return data;
+  // }
