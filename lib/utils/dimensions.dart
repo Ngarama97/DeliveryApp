@@ -39,7 +39,7 @@ class Layout {
   static double iconSize16 = screenHeight / 52.75;
 
   //List view size
-  static double listViewtextCont = screenHeight / 8.44;
+  static double listViewtextCont = screenHeight / 8.00;
   static double listViewImg = screenHeight / 7.03;
 
   //ppopular food

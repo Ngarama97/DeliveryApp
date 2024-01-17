@@ -16,7 +16,7 @@ class AppColumn extends StatelessWidget {
       children: [
         BigText(
           text: text,
-          size: Layout.font26,
+          size: Layout.font20,
         ),
         SizedBox(height: Layout.height10),
         Row(
@@ -42,7 +42,8 @@ class AppColumn extends StatelessWidget {
 
         // The section for restaurant statics (quality, location & delivery time)
         Padding(
-          padding: EdgeInsets.only(right: Layout.width10),
+          padding:
+              EdgeInsets.only(right: Layout.width10, bottom: Layout.height10),
           child: const Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
